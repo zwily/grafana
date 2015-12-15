@@ -1,5 +1,4 @@
-///<reference path="../../headers/common.d.ts" />
-
+///<reference path="../../../headers/common.d.ts" />
 
 import angular = require('angular');
 import $ = require('jquery');
@@ -101,6 +100,14 @@ export class TablePanelEditorCtrl {
       });
     };
 
+    $scope.invertColorOrder = function(index) {
+      var ref = $scope.panel.styles[index].colors;
+      var copy = ref[0];
+      ref[0] = ref[2];
+      ref[2] = copy;
+      $scope.render();
+    };
+
   }
 }
 
@@ -114,4 +121,3 @@ export function tablePanelEditor($q, uiSegmentSrv) {
     controller: TablePanelEditorCtrl,
   };
 }
-

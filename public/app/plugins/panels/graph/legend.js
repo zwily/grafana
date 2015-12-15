@@ -45,7 +45,7 @@ function (angular, _, $) {
           popoverScope.series = seriesInfo;
           popoverSrv.show({
             element: el,
-            templateUrl:  'app/panels/graph/legend.popover.html',
+            templateUrl:  'app/plugins/panels/graph/legend.popover.html',
             scope: popoverScope
           });
         }
@@ -151,7 +151,7 @@ function (angular, _, $) {
             html += '</div>';
 
             html += '<div class="graph-legend-alias">';
-            html += '<a>' + series.label + '</a>';
+            html += '<a>' + _.escape(series.label) + '</a>';
             html += '</div>';
 
             if (panel.legend.values) {
