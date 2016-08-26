@@ -370,6 +370,9 @@ function (angular, _, moment, dateMath, kbn, CloudWatchAnnotationQuery) {
             dps.push([null, lastTimestamp + periodMs]);
           }
           lastTimestamp = timestamp;
+          if (options.convertToPerSecond && stat === 'Sum') {
+            dp[stat] = dp[stat] / options.period;
+          }
           if (!extended) {
             dps.push([dp[stat], timestamp]);
           } else {

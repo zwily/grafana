@@ -30,6 +30,7 @@ function (angular, _) {
       target.dimensions = target.dimensions || {};
       target.period = target.period || '';
       target.region = target.region || '';
+      target.convertToPerSecond = target.convertToPerSecond || '';
 
       $scope.regionSegment =  uiSegmentSrv.getSegmentForValue($scope.target.region, 'select region');
       $scope.namespaceSegment = uiSegmentSrv.getSegmentForValue($scope.target.namespace, 'select namespace');
