@@ -317,6 +317,9 @@ function (angular, _, moment, dateMath, CloudWatchAnnotationQuery) {
             dps.push([null, lastTimestamp + periodMs]);
           }
           lastTimestamp = timestamp;
+          if (options.convertToPerSecond && stat === 'Sum') {
+            dp[stat] = dp[stat] / options.period;
+          }
           dps.push([dp[stat], timestamp]);
         });
 
